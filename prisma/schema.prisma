@@ -43,11 +43,12 @@ model User {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String    @id @default(cuid())
   accountId         String? // Add this field for better-auth compatibility
   userId            String
   providerId        String
   providerAccountId String?
+  password          String? // Add password field for email/password auth
   accessToken       String?
   refreshToken      String?
   expiresAt         Int?
@@ -55,6 +56,8 @@ model Account {
   scope             String?
   idToken           String?
   sessionState      String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -63,11 +66,13 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
+  id           String    @id @default(cuid())
+  sessionToken String    @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
 }
