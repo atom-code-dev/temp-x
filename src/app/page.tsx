@@ -4,72 +4,45 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Star, Users, Building2, Briefcase, MessageSquare, CheckCircle, Sparkles, ArrowRight, Github, Twitter, Linkedin } from "lucide-react";
+import { Star, Users, Building2, Briefcase, MessageSquare, CheckCircle, ArrowRight, Github, Twitter, Linkedin, Zap, Shield, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Globe } from "@/components/ui/globe";
-import { Marquee } from "@/components/ui/marquee";
 import { GradientText } from "@/components/ui/gradient-text";
-import { ShineButton } from "@/components/ui/shine-button";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
-import { AnimatedList } from "@/components/ui/animated-list";
-import { TypingText } from "@/components/ui/typing-text";
-import { Meteors } from "@/components/ui/meteors";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { Aurora } from "@/components/ui/aurora";
-import { DotsBackground } from "@/components/ui/dots-background";
-import { Beam } from "@/components/ui/beam";
-import { Confetti } from "@/components/ui/confetti";
 import { NumberTicker } from "@/components/ui/number-ticker";
-import { Particles } from "@/components/ui/particles";
 import { WordRotate } from "@/components/ui/word-rotate";
-import { HeroPattern } from "@/components/ui/hero-pattern";
-import { HeroGradient } from "@/components/ui/hero-gradient";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Background Effects - Black theme with subtle accents */}
-      <HeroGradient type="radial" colors={["#000000", "#0a0a0a", "#000000"]} opacity={0.4} />
-      <DotsBackground dotColor="#333333" />
-      <Particles count={15} color="#ffffff" />
-      <Beam color="#ffffff" />
-      <Aurora colorStops={["#ffffff", "#f0f0f0", "#e0e0e0"]} />
-      
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-10 border-b border-gray-800 bg-black/80 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Briefcase className="h-8 w-8 text-white" />
-                <GradientText colors={["#ffffff", "#f0f0f0", "#ffffff"]} className="text-xl font-bold">
-                  FreelanceHub
-                </GradientText>
+      <nav className="border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <Briefcase className="h-5 w-5 text-white" />
+                </div>
+                <span className="text-xl font-semibold text-gray-900">FreelanceHub</span>
+              </div>
+              <div className="hidden ml-16 lg:flex items-center space-x-8">
+                <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Platform</a>
+                <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">For Freelancers</a>
+                <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">For Companies</a>
+                <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
               </div>
             </div>
-            
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Product</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Solutions</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Resources</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a>
-            </div>
-
             <div className="flex items-center space-x-4">
-              <Link href="/demo">
-                <ShineButton variant="outline" className="border-gray-700 text-gray-300 hover:text-white">
-                  Demo
-                </ShineButton>
-              </Link>
               <Link href="/login">
-                <Button variant="ghost" className="text-gray-300 hover:text-white">
-                  Log In
+                <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
+                  Log in
                 </Button>
               </Link>
               <Link href="/login">
-                <ShimmerButton className="bg-white text-black hover:bg-gray-200">
-                  Sign Up
-                </ShimmerButton>
+                <Button className="bg-blue-600 text-white hover:bg-blue-700">
+                  Get Started
+                </Button>
               </Link>
             </div>
           </div>
@@ -77,142 +50,94 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative z-10">
-              <Badge variant="secondary" className="mb-4 bg-white/10 text-white border-white/20">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Launching Soon
+      <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <Badge variant="secondary" className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border-blue-200 mb-6">
+                <Zap className="w-3 h-3 mr-2" />
+                Trusted by 10,000+ professionals
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6 text-white">
-                Connect with Top Freelancers & 
-                <span className="block mt-2">
-                  <WordRotate 
-                    words={["Grow Your Business", "Build Amazing Projects", "Achieve Success"]}
-                    className="text-white"
-                  />
-                </span>
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Where great 
+                <span className="text-blue-600"> freelancers</span>
+                <br />
+                meet great 
+                <span className="text-blue-600"> companies</span>
               </h1>
-              <p className="text-lg text-gray-300 mb-8 max-w-lg">
-                <TypingText 
-                  texts={[
-                    "The ultimate platform where talented freelancers meet forward-thinking organizations.",
-                    "Build amazing projects together, delivered with excellence.",
-                    "Join thousands already collaborating on FreelanceHub."
-                  ]}
-                  className="text-lg text-gray-300 mb-8 max-w-lg"
-                />
+              <p className="mt-6 text-xl text-gray-600 leading-relaxed max-w-2xl">
+                The professional platform connecting talented freelancers with innovative companies. 
+                Build amazing projects together, delivered with excellence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link href="/login">
-                  <ShineButton size="lg" className="text-lg px-8 py-6 w-full sm:w-auto bg-white text-black hover:bg-gray-100">
-                    I'm a Freelancer
+                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 text-lg font-medium">
+                    Find Talent
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </ShineButton>
+                  </Button>
                 </Link>
                 <Link href="/login">
-                  <Button size="lg" variant="outline" className="text-lg px-8 py-6 w-full sm:w-auto border-gray-700 text-gray-300 hover:text-white hover:border-gray-600">
-                    I'm an Organization
+                  <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-medium">
+                    Find Work
                   </Button>
                 </Link>
               </div>
               
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <NumberTicker value={10000} prefix="+" className="text-3xl font-bold text-white" />
-                  <p className="text-sm text-gray-400">Freelancers</p>
-                </div>
-                <div className="text-center">
-                  <NumberTicker value={5000} prefix="+" className="text-3xl font-bold text-white" />
-                  <p className="text-sm text-gray-400">Projects</p>
-                </div>
-                <div className="text-center">
-                  <NumberTicker value={98} suffix="%" className="text-3xl font-bold text-white" />
-                  <p className="text-sm text-gray-400">Success Rate</p>
+              {/* Trust Indicators */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="flex items-center justify-between">
+                  <div className="text-center">
+                    <NumberTicker value={10000} prefix="+" className="text-3xl font-bold text-gray-900" />
+                    <p className="text-sm text-gray-600 mt-1">Freelancers</p>
+                  </div>
+                  <div className="text-center">
+                    <NumberTicker value={5000} prefix="+" className="text-3xl font-bold text-gray-900" />
+                    <p className="text-sm text-gray-600 mt-1">Companies</p>
+                  </div>
+                  <div className="text-center">
+                    <NumberTicker value={98} suffix="%" className="text-3xl font-bold text-gray-900" />
+                    <p className="text-sm text-gray-600 mt-1">Success Rate</p>
+                  </div>
+                  <div className="text-center">
+                    <NumberTicker value={24} suffix="/7" className="text-3xl font-bold text-gray-900" />
+                    <p className="text-sm text-gray-600 mt-1">Support</p>
+                  </div>
                 </div>
               </div>
             </div>
             
             <div className="relative">
-              <div className="relative h-[600px] w-full">
+              <div className="relative h-[500px] w-full">
                 <Globe className="absolute inset-0" />
-                <Meteors />
-              </div>
-              
-              {/* Floating Cards - Subtle */}
-              <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="grid grid-cols-2 gap-4 p-4">
-                  <Card className="p-4 shadow-lg bg-black/80 backdrop-blur border-gray-800 animate-float">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <Avatar className="h-8 w-8">
+                {/* Overlay Cards */}
+                <div className="absolute top-8 left-8 right-8 grid grid-cols-2 gap-4">
+                  <Card className="p-4 bg-white/95 backdrop-blur-sm border-gray-200 shadow-lg">
+                    <div className="flex items-center space-x-3">
+                      <Avatar className="h-10 w-10">
                         <AvatarImage src="/api/placeholder/40/40" />
-                        <AvatarFallback>JD</AvatarFallback>
+                        <AvatarFallback className="bg-blue-100 text-blue-600">JD</AvatarFallback>
                       </Avatar>
-                      <div>
-                        <p className="font-medium text-sm text-white">John Doe</p>
-                        <div className="flex items-center space-x-1">
-                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                          <span className="text-xs text-gray-400">5.0</span>
-                        </div>
+                      <div className="flex-1">
+                        <p className="font-medium text-gray-900">John Doe</p>
+                        <p className="text-sm text-gray-600">Senior Developer</p>
                       </div>
-                    </div>
-                    <h3 className="font-medium mb-2 text-sm text-white">Web Development</h3>
-                    <p className="text-xs text-gray-400">Building modern web applications</p>
-                    <div className="mt-3">
-                      <span className="text-sm font-semibold text-white">$50/hr</span>
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm text-gray-600 ml-1">5.0</span>
+                      </div>
                     </div>
                   </Card>
-
-                  <Card className="p-4 shadow-lg bg-black/80 backdrop-blur border-gray-800 animate-float animation-delay-1000">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage src="/api/placeholder/40/40" />
-                        <AvatarFallback>AS</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <p className="font-medium text-sm text-white">Alice Smith</p>
-                        <div className="flex items-center space-x-1">
-                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                          <span className="text-xs text-gray-400">4.9</span>
-                        </div>
+                  
+                  <Card className="p-4 bg-white/95 backdrop-blur-sm border-gray-200 shadow-lg">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                        <Building2 className="h-5 w-5 text-green-600" />
                       </div>
-                    </div>
-                    <h3 className="font-medium mb-2 text-sm text-white">UI/UX Design</h3>
-                    <p className="text-xs text-gray-400">Creating beautiful user experiences</p>
-                    <div className="mt-3">
-                      <span className="text-sm font-semibold text-white">$75/hr</span>
-                    </div>
-                  </Card>
-
-                  <Card className="p-4 shadow-lg bg-black/80 backdrop-blur border-gray-800 animate-float animation-delay-2000">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <Building2 className="h-6 w-6 text-white" />
-                      <div>
-                        <p className="font-medium text-sm text-white">TechCorp Inc.</p>
-                        <p className="text-xs text-gray-400">Software Company</p>
+                      <div className="flex-1">
+                        <p className="font-medium text-gray-900">TechCorp</p>
+                        <p className="text-sm text-gray-600">Hiring Now</p>
                       </div>
-                    </div>
-                    <h3 className="font-medium mb-2 text-sm text-white">Looking for Developers</h3>
-                    <p className="text-xs text-gray-400">Multiple positions available</p>
-                    <div className="mt-3">
-                      <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Hiring</Badge>
-                    </div>
-                  </Card>
-
-                  <Card className="p-4 shadow-lg bg-black/80 backdrop-blur border-gray-800 animate-float animation-delay-3000">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <Building2 className="h-6 w-6 text-white" />
-                      <div>
-                        <p className="font-medium text-sm text-white">StartupXYZ</p>
-                        <p className="text-xs text-gray-400">E-commerce Platform</p>
-                      </div>
-                    </div>
-                    <h3 className="font-medium mb-2 text-sm text-white">Marketing Experts</h3>
-                    <p className="text-xs text-gray-400">Growth marketing needed</p>
-                    <div className="mt-3">
-                      <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Urgent</Badge>
+                      <Badge className="bg-green-100 text-green-700 border-green-200">Active</Badge>
                     </div>
                   </Card>
                 </div>
@@ -223,204 +148,224 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative">
-        <HeroPattern pattern="dots" opacity={0.02} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
-              <GradientText colors={["#ffffff", "#f0f0f0", "#ffffff"]}>
-                Why Choose FreelanceHub?
-              </GradientText>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Everything you need to succeed
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              We provide the perfect platform for freelancers and organizations to collaborate effectively
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Powerful features designed to help freelancers and companies work together effectively
             </p>
           </div>
 
-          <BentoGrid>
+          <BentoGrid className="max-w-6xl mx-auto">
             <BentoCard
               title="For Freelancers"
-              description="Showcase your skills and find quality clients"
-              icon={<Users className="h-8 w-8 text-white" />}
+              description="Showcase your skills and find your next opportunity"
+              icon={<Users className="h-6 w-6 text-blue-600" />}
             >
-              <AnimatedList>
+              <div className="space-y-3">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Showcase your skills</span>
+                  <span className="text-gray-700">Professional portfolio</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Find quality clients</span>
+                  <span className="text-gray-700">Quality job opportunities</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Get paid on time</span>
+                  <span className="text-gray-700">Secure payments</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Build your reputation</span>
+                  <span className="text-gray-700">Build reputation</span>
                 </div>
-              </AnimatedList>
+              </div>
             </BentoCard>
 
             <BentoCard
-              title="For Organizations"
+              title="For Companies"
               description="Access top talent and scale your team"
-              icon={<Building2 className="h-8 w-8 text-white" />}
+              icon={<Building2 className="h-6 w-6 text-blue-600" />}
             >
-              <AnimatedList>
+              <div className="space-y-3">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Access top talent</span>
+                  <span className="text-gray-700">Vetted professionals</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Flexible hiring options</span>
+                  <span className="text-gray-700">Flexible hiring</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Quality guaranteed</span>
+                  <span className="text-gray-700">Quality guarantee</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Scale your team</span>
+                  <span className="text-gray-700">Scale efficiently</span>
                 </div>
-              </AnimatedList>
+              </div>
             </BentoCard>
 
             <BentoCard
-              title="Seamless Communication"
-              description="Real-time messaging and collaboration tools"
-              icon={<MessageSquare className="h-8 w-8 text-white" />}
+              title="Communication"
+              description="Seamless collaboration tools"
+              icon={<MessageSquare className="h-6 w-6 text-blue-600" />}
             >
-              <AnimatedList>
+              <div className="space-y-3">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Real-time messaging</span>
+                  <span className="text-gray-700">Real-time messaging</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">File sharing</span>
+                  <span className="text-gray-700">File sharing</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Progress tracking</span>
+                  <span className="text-gray-700">Progress tracking</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span className="text-gray-300">Secure platform</span>
+                  <span className="text-gray-700">Secure platform</span>
                 </div>
-              </AnimatedList>
+              </div>
             </BentoCard>
           </BentoGrid>
         </div>
       </section>
 
-      {/* Marquee Section */}
-      <section className="py-20 bg-gray-900/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold mb-4 text-white">Trusted by Leading Companies</h3>
+      {/* How It Works */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              How it works
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get started in minutes and find your perfect match
+            </p>
           </div>
-          <Marquee pauseOnHover>
-            {Array.from({ length: 10 }, (_, i) => (
-              <div key={i} className="flex items-center justify-center px-8">
-                <div className="text-xl font-semibold text-gray-400">
-                  Company {i + 1}
-                </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-            ))}
-          </Marquee>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Create Profile</h3>
+              <p className="text-gray-600">Sign up and create your professional profile in minutes</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-600">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Find Matches</h3>
+              <p className="text-gray-600">Browse opportunities or talent that fits your needs</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-600">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Start Working</h3>
+              <p className="text-gray-600">Connect and collaborate on amazing projects</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative bg-gray-900 text-white overflow-hidden">
-        <Confetti count={30} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            <GradientText colors={["#ffffff", "#f0f0f0", "#ffffff"]}>
-              Ready to Get Started?
-            </GradientText>
+      <section className="py-24 bg-blue-600">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Ready to get started?
           </h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto text-gray-300">
-            Join thousands of freelancers and organizations already collaborating on FreelanceHub
+          <p className="text-xl text-blue-100 mb-8">
+            Join thousands of freelancers and companies already collaborating on FreelanceHub
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
-              <ShimmerButton size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-black hover:bg-gray-200">
-                Join as Freelancer
-              </ShimmerButton>
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-medium">
+                I'm a Freelancer
+              </Button>
             </Link>
             <Link href="/login">
-              <ShineButton size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black">
-                Join as Organization
-              </ShineButton>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-medium">
+                I'm a Company
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-12 relative">
-        <HeroPattern pattern="grid" opacity={0.02} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-4 gap-8">
+      <footer className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Briefcase className="h-6 w-6 text-white" />
-                <GradientText colors={["#ffffff", "#f0f0f0", "#ffffff"]} className="text-lg font-bold">
-                  FreelanceHub
-                </GradientText>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <Briefcase className="h-5 w-5 text-white" />
+                </div>
+                <span className="text-xl font-semibold">FreelanceHub</span>
               </div>
-              <p className="text-gray-400">
-                Connecting talent with opportunity.
+              <p className="text-gray-400 mb-6">
+                Connecting talented freelancers with innovative companies worldwide.
               </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Github className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-white">Product</h4>
-              <AnimatedList>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Enterprise</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></div>
-              </AnimatedList>
+              <h4 className="font-semibold mb-4">Platform</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">How it Works</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">For Freelancers</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">For Companies</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+              </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Resources</h4>
-              <AnimatedList>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Support</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">API</a></div>
-              </AnimatedList>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Docs</a></li>
+              </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Company</h4>
-              <AnimatedList>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></div>
-                <div><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a></div>
-              </AnimatedList>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">© 2024 FreelanceHub. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Security</a>
             </div>
           </div>
         </div>
