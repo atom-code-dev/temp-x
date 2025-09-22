@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/auth-context";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Briefcase, Building2, Shield } from "lucide-react";
 
 export default function LoginPage() {
@@ -120,9 +121,12 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Briefcase className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">FreelanceHub</span>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-center space-x-2">
+              <Briefcase className="h-8 w-8 text-primary" />
+              <span className="text-2xl font-bold">FreelanceHub</span>
+            </div>
+            <ThemeToggle />
           </div>
           <h1 className="text-2xl font-bold">Welcome to FreelanceHub</h1>
           <p className="text-muted-foreground mt-2">
