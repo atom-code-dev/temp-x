@@ -1,47 +1,75 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Twitter, Linkedin, Check } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star, Users, Building2, Briefcase, MessageSquare, CheckCircle, Sparkles, ArrowRight, Github, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
+import { Globe } from "@/components/ui/globe";
+import { Marquee } from "@/components/ui/marquee";
+import { GradientText } from "@/components/ui/gradient-text";
+import { ShineButton } from "@/components/ui/shine-button";
+import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
+import { AnimatedList } from "@/components/ui/animated-list";
+import { TypingText } from "@/components/ui/typing-text";
+import { Meteors } from "@/components/ui/meteors";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { Aurora } from "@/components/ui/aurora";
+import { DotsBackground } from "@/components/ui/dots-background";
+import { Beam } from "@/components/ui/beam";
+import { Confetti } from "@/components/ui/confetti";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { Particles } from "@/components/ui/particles";
+import { WordRotate } from "@/components/ui/word-rotate";
+import { HeroPattern } from "@/components/ui/hero-pattern";
+import { HeroGradient } from "@/components/ui/hero-gradient";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background Effects - Subtle dark theme */}
+      <HeroGradient type="radial" colors={["#1e1b4b", "#312e81", "#1e1b4b"]} opacity={0.3} />
+      <DotsBackground dotColor="#374151" />
+      <Particles count={20} color="#6366f1" />
+      <Beam color="#6366f1" />
+      <Aurora colorStops={["#6366f1", "#8b5cf6", "#a855f7"]} />
+      
       {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <span className="text-xl font-semibold text-gray-900">FreelanceHub</span>
-              </div>
-              <div className="hidden md:block ml-10">
-                <div className="flex items-baseline space-x-8">
-                  <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Product
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Solutions
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Resources
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">
-                    Pricing
-                  </a>
-                </div>
+      <nav className="relative z-10 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <Briefcase className="h-8 w-8 text-primary" />
+                <GradientText colors={["#6366f1", "#8b5cf6", "#a855f7"]} className="text-xl font-bold">
+                  FreelanceHub
+                </GradientText>
               </div>
             </div>
+            
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Product</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Solutions</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Resources</a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+            </div>
+
             <div className="flex items-center space-x-4">
+              <Link href="/demo">
+                <ShineButton variant="outline" className="border-border text-muted-foreground hover:text-foreground">
+                  Demo
+                </ShineButton>
+              </Link>
               <Link href="/login">
-                <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
-                  Log in
+                <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+                  Log In
                 </Button>
               </Link>
               <Link href="/login">
-                <Button className="bg-gray-900 text-white hover:bg-gray-800">
-                  Sign up
-                </Button>
+                <ShimmerButton className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  Sign Up
+                </ShimmerButton>
               </Link>
             </div>
           </div>
@@ -49,226 +77,348 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Connect with top freelancers
-              <br />
-              <span className="text-blue-600">and grow your business</span>
-            </h1>
-            <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-              The platform where talented freelancers meet forward-thinking organizations. 
-              Build amazing projects together, delivered with excellence.
-            </p>
-            <div className="mt-10 flex justify-center gap-4">
-              <Link href="/login">
-                <Button size="lg" className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-3 text-lg">
-                  I'm a freelancer
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/login">
-                <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 text-lg">
-                  I'm an organization
-                </Button>
-              </Link>
+      <section className="relative py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10">
+              <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Launching Soon
+              </Badge>
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
+                Connect with Top Freelancers & 
+                <span className="block mt-2">
+                  <WordRotate 
+                    words={["Grow Your Business", "Build Amazing Projects", "Achieve Success"]}
+                    className="text-primary"
+                  />
+                </span>
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+                <TypingText 
+                  texts={[
+                    "The ultimate platform where talented freelancers meet forward-thinking organizations.",
+                    "Build amazing projects together, delivered with excellence.",
+                    "Join thousands already collaborating on FreelanceHub."
+                  ]}
+                  className="text-lg text-muted-foreground mb-8 max-w-lg"
+                />
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/login">
+                  <ShineButton size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
+                    I'm a Freelancer
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </ShineButton>
+                </Link>
+                <Link href="/login">
+                  <Button size="lg" variant="outline" className="text-lg px-8 py-6 w-full sm:w-auto border-border text-muted-foreground hover:text-foreground">
+                    I'm an Organization
+                  </Button>
+                </Link>
+              </div>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 mt-12">
+                <div className="text-center">
+                  <NumberTicker value={10000} prefix="+" className="text-3xl font-bold text-primary" />
+                  <p className="text-sm text-muted-foreground">Freelancers</p>
+                </div>
+                <div className="text-center">
+                  <NumberTicker value={5000} prefix="+" className="text-3xl font-bold text-primary" />
+                  <p className="text-sm text-muted-foreground">Projects</p>
+                </div>
+                <div className="text-center">
+                  <NumberTicker value={98} suffix="%" className="text-3xl font-bold text-primary" />
+                  <p className="text-sm text-muted-foreground">Success Rate</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="relative h-[600px] w-full">
+                <Globe className="absolute inset-0" />
+                <Meteors />
+              </div>
+              
+              {/* Floating Cards - Subtle */}
+              <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                <div className="grid grid-cols-2 gap-4 p-4">
+                  <Card className="p-4 shadow-lg bg-card/80 backdrop-blur border-border/50 animate-float">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src="/api/placeholder/40/40" />
+                        <AvatarFallback>JD</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="font-medium text-sm">John Doe</p>
+                        <div className="flex items-center space-x-1">
+                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                          <span className="text-xs text-muted-foreground">5.0</span>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="font-medium mb-2 text-sm">Web Development</h3>
+                    <p className="text-xs text-muted-foreground">Building modern web applications</p>
+                    <div className="mt-3">
+                      <span className="text-sm font-semibold text-primary">$50/hr</span>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 shadow-lg bg-card/80 backdrop-blur border-border/50 animate-float animation-delay-1000">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src="/api/placeholder/40/40" />
+                        <AvatarFallback>AS</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="font-medium text-sm">Alice Smith</p>
+                        <div className="flex items-center space-x-1">
+                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                          <span className="text-xs text-muted-foreground">4.9</span>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="font-medium mb-2 text-sm">UI/UX Design</h3>
+                    <p className="text-xs text-muted-foreground">Creating beautiful user experiences</p>
+                    <div className="mt-3">
+                      <span className="text-sm font-semibold text-primary">$75/hr</span>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 shadow-lg bg-card/80 backdrop-blur border-border/50 animate-float animation-delay-2000">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Building2 className="h-6 w-6 text-primary" />
+                      <div>
+                        <p className="font-medium text-sm">TechCorp Inc.</p>
+                        <p className="text-xs text-muted-foreground">Software Company</p>
+                      </div>
+                    </div>
+                    <h3 className="font-medium mb-2 text-sm">Looking for Developers</h3>
+                    <p className="text-xs text-muted-foreground">Multiple positions available</p>
+                    <div className="mt-3">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">Hiring</Badge>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 shadow-lg bg-card/80 backdrop-blur border-border/50 animate-float animation-delay-3000">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Building2 className="h-6 w-6 text-primary" />
+                      <div>
+                        <p className="font-medium text-sm">StartupXYZ</p>
+                        <p className="text-xs text-muted-foreground">E-commerce Platform</p>
+                      </div>
+                    </div>
+                    <h3 className="font-medium mb-2 text-sm">Marketing Experts</h3>
+                    <p className="text-xs text-muted-foreground">Growth marketing needed</p>
+                    <div className="mt-3">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">Urgent</Badge>
+                    </div>
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative">
+        <HeroPattern pattern="dots" opacity={0.03} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Everything you need to succeed
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              <GradientText colors={["#6366f1", "#8b5cf6", "#a855f7"]}>
+                Why Choose FreelanceHub?
+              </GradientText>
             </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              Powerful features designed to help freelancers and organizations work together effectively
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We provide the perfect platform for freelancers and organizations to collaborate effectively
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <div className="w-6 h-6 bg-blue-600 rounded"></div>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">For Freelancers</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Showcase your skills and portfolio</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Find quality clients and projects</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Get paid on time, every time</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Build your professional reputation</span>
-                </li>
-              </ul>
-            </div>
+          <BentoGrid>
+            <BentoCard
+              title="For Freelancers"
+              description="Showcase your skills and find quality clients"
+              icon={<Users className="h-8 w-8 text-primary" />}
+            >
+              <AnimatedList>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Showcase your skills</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Find quality clients</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Get paid on time</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Build your reputation</span>
+                </div>
+              </AnimatedList>
+            </BentoCard>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <div className="w-6 h-6 bg-blue-600 rounded"></div>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">For Organizations</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Access top global talent</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BentoCard
+              title="For Organizations"
+              description="Access top talent and scale your team"
+              icon={<Building2 className="h-8 w-8 text-primary" />}
+            >
+              <AnimatedList>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Access top talent</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>Flexible hiring options</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Quality guaranteed work</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Scale your team efficiently</span>
-                </li>
-              </ul>
-            </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Quality guaranteed</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Scale your team</span>
+                </div>
+              </AnimatedList>
+            </BentoCard>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <div className="w-6 h-6 bg-blue-600 rounded"></div>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Communication</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BentoCard
+              title="Seamless Communication"
+              description="Real-time messaging and collaboration tools"
+              icon={<MessageSquare className="h-8 w-8 text-primary" />}
+            >
+              <AnimatedList>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>Real-time messaging</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>File sharing and collaboration</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>File sharing</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>Progress tracking</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Secure and reliable platform</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Secure platform</span>
+                </div>
+              </AnimatedList>
+            </BentoCard>
+          </BentoGrid>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">10K+</div>
-              <div className="text-gray-600">Freelancers</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">5K+</div>
-              <div className="text-gray-600">Projects</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">98%</div>
-              <div className="text-gray-600">Success Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">24/7</div>
-              <div className="text-gray-600">Support</div>
-            </div>
+      {/* Marquee Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-foreground">Trusted by Leading Companies</h3>
           </div>
+          <Marquee pauseOnHover>
+            {Array.from({ length: 10 }, (_, i) => (
+              <div key={i} className="flex items-center justify-center px-8">
+                <div className="text-xl font-semibold text-muted-foreground">
+                  Company {i + 1}
+                </div>
+              </div>
+            ))}
+          </Marquee>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-900 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to get started?
+      <section className="py-20 relative bg-primary text-primary-foreground overflow-hidden">
+        <Confetti count={30} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <GradientText colors={["#ffffff", "#e0e7ff", "#ffffff"]}>
+              Ready to Get Started?
+            </GradientText>
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
             Join thousands of freelancers and organizations already collaborating on FreelanceHub
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
-              <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3 text-lg">
-                Join as freelancer
-              </Button>
+              <ShimmerButton size="lg" variant="secondary" className="text-lg px-8 py-6 bg-background text-foreground hover:bg-muted">
+                Join as Freelancer
+              </ShimmerButton>
             </Link>
             <Link href="/login">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg">
-                Join as organization
-              </Button>
+              <ShineButton size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Join as Organization
+              </ShineButton>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="border-t border-border/50 py-12 relative">
+        <HeroPattern pattern="grid" opacity={0.02} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="text-xl font-semibold text-gray-900 mb-4">FreelanceHub</div>
-              <p className="text-gray-600">
+              <div className="flex items-center space-x-2 mb-4">
+                <Briefcase className="h-6 w-6 text-primary" />
+                <GradientText colors={["#6366f1", "#8b5cf6", "#a855f7"]} className="text-lg font-bold">
+                  FreelanceHub
+                </GradientText>
+              </div>
+              <p className="text-muted-foreground">
                 Connecting talent with opportunity.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Features</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Pricing</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Enterprise</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Security</a></li>
-              </ul>
+              <h4 className="font-semibold mb-4 text-foreground">Product</h4>
+              <AnimatedList>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Features</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Enterprise</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Security</a></div>
+              </AnimatedList>
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Documentation</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Blog</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Support</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">API</a></li>
-              </ul>
+              <h4 className="font-semibold mb-4 text-foreground">Resources</h4>
+              <AnimatedList>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Documentation</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Support</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API</a></div>
+              </AnimatedList>
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">About</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Careers</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Contact</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-gray-900">Privacy</a></li>
-              </ul>
+              <h4 className="font-semibold mb-4 text-foreground">Company</h4>
+              <AnimatedList>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a></div>
+                <div><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy</a></div>
+              </AnimatedList>
             </div>
           </div>
           
-          <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600">© 2024 FreelanceHub. All rights reserved.</p>
+          <div className="border-t border-border/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-muted-foreground">© 2024 FreelanceHub. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-gray-600">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
