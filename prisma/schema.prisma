@@ -26,6 +26,7 @@ model User {
   updatedAt     DateTime  @updatedAt
 
   // Better Auth fields
+  password String?
   hashedPassword String?
 
   // Relations
@@ -43,9 +44,10 @@ model User {
 
 model Account {
   id                String  @id @default(cuid())
+  accountId         String? // Add this field for better-auth compatibility
   userId            String
   providerId        String
-  providerAccountId String
+  providerAccountId String?
   accessToken       String?
   refreshToken      String?
   expiresAt         Int?
