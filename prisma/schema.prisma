@@ -14,19 +14,195 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  name          String?
+  role          UserRole  @default(USER)
+  avatar        String?
+  bio           String?
+  skills        String?   // JSON string array of skills
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Better Auth fields
+  hashedPassword String?
+
+  // Relations
+  accounts      Account[]
+  sessions      Session[]
+  services      Service[]
+  orders        Order[]
+  reviews       Review[]
+  sentMessages  Message[] @relation("MessageSender")
+  receivedMessages Message[] @relation("MessageReceiver")
+  organization  Organization?
+
+  @@map("users")
 }
 
-model Post {
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  providerId        String
+  providerAccountId String
+  accessToken       String?
+  refreshToken      String?
+  expiresAt         Int?
+  tokenType         String?
+  scope             String?
+  idToken           String?
+  sessionState      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Organization {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  website     String?
+  logo        String?
+  industry    String?
+  size        String?  // Company size
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  userId   String   @unique
+  user     User     @relation(fields: [userId], references: [id])
+  orders   Order[]
+  reviews  Review[]
+
+  @@map("organizations")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  icon        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  services Service[]
+
+  @@map("categories")
+}
+
+model Service {
+  id          String      @id @default(cuid())
+  title       String
+  description String
+  price       Float
+  deliveryTime Int        // in days
+  categoryId  String
+  userId      String
+  images      String?    // JSON string array of image URLs
+  tags        String?    // JSON string array of tags
+  status      ServiceStatus @default(ACTIVE)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  category   Category   @relation(fields: [categoryId], references: [id])
+  user       User       @relation(fields: [userId], references: [id])
+  orders     Order[]
+  reviews    Review[]
+
+  @@map("services")
+}
+
+model Order {
+  id          String     @id @default(cuid())
+  serviceId   String
+  userId      String     // Freelancer ID
+  orgId       String     // Organization ID
+  status      OrderStatus @default(PENDING)
+  price       Float
+  requirements String?
+  deliveryUrl String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  completedAt DateTime?
+
+  // Relations
+  service    Service     @relation(fields: [serviceId], references: [id])
+  user       User        @relation(fields: [userId], references: [id])
+  organization Organization @relation(fields: [orgId], references: [id])
+  reviews    Review[]
+  messages   Message[]
+
+  @@map("orders")
+}
+
+model Review {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  rating    Int      // 1-5 stars
+  comment   String?
+  orderId   String   @unique
+  serviceId String
+  userId    String   // Reviewer ID (organization user)
+  orgId     String   // Reviewer organization
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relations
+  order       Order       @relation(fields: [orderId], references: [id])
+  service     Service     @relation(fields: [serviceId], references: [id])
+  user        User        @relation(fields: [userId], references: [id])
+  organization Organization @relation(fields: [orgId], references: [id])
+
+  @@map("reviews")
+}
+
+model Message {
+  id        String     @id @default(cuid())
+  content   String
+  orderId   String?
+  senderId  String
+  receiverId String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  order    Order?     @relation(fields: [orderId], references: [id])
+  sender   User       @relation("MessageSender", fields: [senderId], references: [id])
+  receiver User       @relation("MessageReceiver", fields: [receiverId], references: [id])
+
+  @@map("messages")
+}
+
+enum UserRole {
+  USER
+  ORGANIZATION
+  ADMIN
+}
+
+enum ServiceStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  DELIVERED
 }
